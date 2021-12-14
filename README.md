@@ -1,2 +1,3 @@
-# DIO_Repo
- Reposítório de testes para o projeto de aprendizagem de Git da DIO.
+# 📖 Digital Innovation One
+
+Reposítório com alguns projetos feitos para a plataforma da DIO
