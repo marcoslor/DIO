@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;500;600&display=swap');
+@import url('kittyflix.ttf');
+
+
+/* GENERAl */
+
+
+:root {
+    --background: #141414;
+    --muted-gray: #808080;
+    --muted-gray-secondary: #a0a0a0;
+    --gray-900: #1d1d1d;
+    --gray-600: #4d4d4d;
+    --kittyflix-red: #DB202C;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Source Sans 3', sans-serif;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    z-index: 10;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    height: 42px;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: unset;
+    color: unset;
+}
+
+button {
+    background-color: transparent;
+    border: unset;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.2rem;
+    color: inherit;
+    padding: unset;
+}
+
+li {
+    list-style: none;
+    padding: 0;
+}
+
+.user-picture {
+    border-radius: 4px;
+}
+
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 6px solid #fff;
+}
+
+
+/* LOGIN SCREEN */
+
+
+.login-screen main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-screen .centered { 
+    margin: auto;
+    position: relative;
+    max-width: 75%;
+}
+
+.login-screen .profiles {
+    align-items: center;
+    width: 100%;
+}
+
+.login-screen h1 {
+    font-size: calc(30px + 2vw);
+    margin: 0;
+    font-weight: 400;
+}
+
+.profiles .user-picture {
+    height: 10vw;
+    width: 10vw;
+    max-height: 200px;
+    max-width: 200px;
+    min-height: 84px;
+    min-width: 84px;
+    background-color: rgb(179, 38, 73);
+    position: relative;
+}
+
+.profiles li {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    display: inline-block;
+}
+
+.profiles li:not(:last-child) {
+    margin-right: 2vw;
+}
+
+.profiles li span {
+    display: block;
+    margin: 1vw 0;
+    font-size: calc(12px + 0.65vw);
+    color: var(--muted-gray);
+}
+
+#logo {
+    height: auto;
+    width: 10vw;
+    max-width: 95px;
+    min-width: 60px;
+}
+
+#logo::before {
+    font-family: "kittyflix";
+    content: "🐈";
+    font-size: 1.4rem;
+    color: var(--kittyflix-red);
+}
+
+.profiles a:hover span{
+    color: #fff;
+}
+
+.profiles a:hover div{
+    border: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+.login-screen button {
+    border: 1px var(--muted-gray) solid;
+    color: var(--muted-gray);
+    font-weight: 200;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.1rem;
+    font-size: calc(12px + 0.65vw);
+}
+
+.login-screen button:hover {
+    border-color: white;
+    color: white;
+}
+
+
+/* MAIN PAGE */
+
+
+.main-page nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.main-page .browse-nav {
+    margin-left: 2rem;
+}
+
+.main-page nav li {
+    font-weight: 200;
+    display: inline-block;
+}
+
+.main-page nav>ul>li:not(:last-child) {
+    margin-right: 22px;
+}
+
+.main-page .browse-nav input {
+    display: none;
+}
+
+.main-page .browse-nav input:checked + label {
+    font-weight: 400;
+}
+
+.main-page .account-nav .fas {
+    font-size: 20px;
+}
+
+.main-page .user-picture {
+    background-color: salmon;
+    width: 32px;
+    height: 32px;
+}
+
+.main-page ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.account-nav li.user-drop {
+    display: flex;
+    align-items: center;
+}
+
+.user-drop {
+    position: relative;
+}
+
+.user-drop:hover #user-dropdown {
+    display: block;
+}
+
+.user-drop .arrow-down {
+    margin: 0 8px
+}
+
+#user-dropdown {
+    position: absolute;
+    min-width: 100px;
+    min-height: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 46px;
+    right: 0;
+    font-size: 1rem;
+    border: solid var(--gray-900) 1px;
+    display: none;
+}
+
+#user-dropdown > ul {
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#user-dropdown ul:first-child {
+    border-bottom: solid 1px var(--gray-600);
+}
+
+#user-dropdown>*:first-child, #user-dropdown>*:last-child {
+    padding: 14px 10px;
+}
+
+#user-dropdown .list-profiles li:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+#user-dropdown .list-profiles li span {
+    white-space: nowrap;
+}
+
+#user-dropdown .list-profiles a {
+    display: flex;
+    line-height: 2;
+}
+
+#user-dropdown .user-picture {
+    margin-right: 8px;
+    display: flex;
+}
+
+#user-dropdown .internal-menu li {
+    font-weight: 400;
+}
+
+#user-dropdown a:hover {
+    text-decoration: underline;
+}
+
+.user-drop::before {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    height: 16px;
+    width: 46px;
+}
+
+/* MAIN PAGE - FEATURED SECTION */
+
+#featured {
+    display: flex;
+    width: 100%;
+    height: 56.25vw;
+    padding-left: 4%;
+    padding-right: 4%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#featured .content-info {
+    position: absolute;
+    bottom: 35%;
+    left: 4%;
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#featured .content-title {
+    font-size: 4.8vw;
+    font-family: "Amatic SC", cursive;
+}
+
+#featured .content-description {
+    font-size: 1.8vw;
+    font-weight: 400;
+}
+
+#featured .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+    background: url("https://media0.giphy.com/media/3oEduEvByabo6QTgLm/giphy.gif?cid=ecf05e47gnhhthw95ang0dmlii2lka7nqc0wubf2d7nnapz0&rid=giphy.gif&ct=g") no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: local;
+}
+
+#featured .background::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 14.7vw;
+    background-image: linear-gradient(to bottom,rgba(20,20,20,0) 0,rgba(20,20,20,.15) 15%,rgba(20,20,20,.35) 29%,rgba(20,20,20,.58) 44%,#141414 68%,#141414 100%);
+}
+
+#featured .row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+}
+
+#featured button {
+    background-color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    color: black;
+    padding: 0.8rem;
+    padding-left: 2rem;
+    padding-right: 2.4rem;
+    white-space: nowrap;
+}
+
+#featured button i {
+    margin-right: 0.5rem;
+}
+
+#featured .info {
+    color: white;
+    background-color: rgb(110 110 110 / 70%);
+}
+
+#featured .play {
+    margin-right: .6rem;
+}
+
+#content-rows-section {
+    margin-top: -14vw;
+}
+
+.content-row > h2 {
+    text-align: left;
+    padding: 0 4%;
+    font-size: 1.8vw;
+    font-weight: 400;
+    line-height: 1.8;
+    margin: 0;
+}
+.content-row {
+    margin: 3vw 0;
+}
+
+.content-row .row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 8.4vw;
+}
+
+.content-row .content-thumb {
+    width: 20%;
+
+    padding: 2px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+}
+
+.content-row .content-thumb::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.glider-track {
+    height: 100%;
+}
+
+.glider-track:first-child {
+    margin-left: 4%;
+}
+
+/* MEDIA QUERIES */
+
+
+@media screen and (min-width: 950px)
+{   #featured button {
+        font-size: 1.2vw;
+    }
+    
+    header {
+        height: 68px;
+    }
+}
+
+@media screen and (min-width: 1500px)
+{
+    header {
+        padding: 0 40px;
+    }
+}
+
